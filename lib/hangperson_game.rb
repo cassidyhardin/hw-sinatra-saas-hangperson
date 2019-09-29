@@ -22,8 +22,10 @@ class HangpersonGame
   end
 
   def guess g
-    unless g != nil and g != "" and g.match(/^[A-Za-z]+$/)
-      raise ArgumentError.new("Not a valid guess")
+    begin
+      raise ArgumentError if g == nil or g == "" or !g.match(/^[A-Za-z]+$/) 
+    rescue ArgumentError
+      return "argument"
     end
     g = g.downcase
     if word.include? (g)
@@ -58,7 +60,7 @@ class HangpersonGame
   end
 
   def check_win_or_lose 
-    if total >= 7 
+    if total >= 7
       return :lose
     elsif attempt == word
       return :win
