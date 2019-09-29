@@ -23,6 +23,7 @@ class HangpersonApp < Sinatra::Base
   
   get '/new' do
     erb :new
+    redirect '/create'
   end
   
   post '/create' do
