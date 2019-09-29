@@ -21,8 +21,6 @@ class HangpersonGame
     @word
   end
 
-
-
   def guess g
     unless g != nil and g != "" and g.match(/^[A-Za-z]+$/)
       raise ArgumentError.new("Not a valid guess")
